@@ -5,7 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Mim | Vinicius Codes</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    </head>
+    
+    <style id="menu-v2-styles">
+        .header-container { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 10px 20px; }
+        .nav-menu { display: flex; gap: 25px; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: var(--primary); }
+        
+        /* Dropdown Desktop */
+        .dropdown { position: relative; }
+        .dropdown-content { 
+            display: none; position: absolute; background: #fff; min-width: 200px; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 8px; top: 100%; z-index: 1000;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { display: block; padding: 12px 16px; text-decoration: none; color: #333; border-bottom: 1px solid #eee; }
+        
+        /* Mobile Toggle */
+        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle { display: block; }
+            .nav-menu { 
+                display: none; position: absolute; top: 70px; left: 0; width: 100%; 
+                background: #fff; flex-direction: column; padding: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); 
+            }
+            .nav-menu.active { display: flex; }
+            .dropdown-content { position: static; box-shadow: none; padding-left: 20px; display: block; }
+        }
+    </style>
+    <script id="menu-v2-js">
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const menu = document.querySelector('.nav-menu');
+            if(toggle) {
+                toggle.addEventListener('click', () => menu.classList.toggle('active'));
+            }
+        });
+    </script>
+
+</head>
 <body>
     <article class="container">
         <h1>Sobre Vinicius Martins Oliveira</h1>
