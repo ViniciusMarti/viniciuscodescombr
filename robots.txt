@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://viniciuscodes.com.br/sitemap.xml
