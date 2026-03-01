@@ -119,6 +119,28 @@
             font-size: 0.9rem;
         }
     </style>
+
+    <style>
+        .amazon-pro-card {
+            display: flex; align-items: center; background: #fff;
+            border: 1px solid #ddd; border-radius: 12px; padding: 15px;
+            margin: 30px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-decoration: none; color: inherit; transition: transform 0.2s;
+        }
+        .amazon-pro-card:hover { transform: translateY(-3px); border-color: #ff9900; }
+        .amz-img-box { flex: 0 0 100px; height: 100px; display: flex; align-items: center; justify-content: center; margin-right: 20px; }
+        .amz-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+        .amz-info { flex: 1; }
+        .amz-tag { font-size: 0.7rem; font-weight: 800; color: #ff9900; text-transform: uppercase; letter-spacing: 1px; }
+        .amz-title { font-size: 1.1rem; font-weight: 700; color: #111; line-height: 1.3; margin: 5px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .amz-price { font-size: 1.3rem; font-weight: 800; color: #B12704; margin-bottom: 5px; }
+        .amz-btn { display: inline-block; background: #ffd814; color: #0f1111; font-weight: 600; font-size: 0.9rem; padding: 8px 20px; border-radius: 50px; }
+        @media (max-width: 600px) {
+            .amazon-pro-card { flex-direction: column; text-align: center; }
+            .amz-img-box { margin-right: 0; margin-bottom: 15px; }
+        }
+    </style>
+
 </head>
 <body>
 
@@ -139,6 +161,16 @@
 
         <div class="content">
             <p>Escolher um bom Airbnb pode transformar completamente a sua experiência de viagem, seja a lazer ou a trabalho. No entanto, sem as estratégias certas, você pode cair em armadilhas que comprometem seu conforto e seu bolso. Nosso blog post, baseado no vídeo "Como escolher um bom Airbnb: 10 dicas que uso sempre", é o seu guia definitivo para navegar no mundo das hospedagens e garantir a estadia perfeita em qualquer destino.</p>
+
+        <a href="https://www.amazon.com.br/s?k=Mala+de+bordo&tag=viniciusvmo-20" target="_blank" rel="nofollow noopener" class="amazon-pro-card" style="border-color: #ff9900;">
+            <div class="amz-info" style="text-align: center;">
+                <div class="amz-tag">Ofertas Relacionadas</div>
+                <div class="amz-title">Encontre os melhores "Mala de bordo" na Amazon</div>
+                <div class="amz-btn" style="margin-top: 10px;">Ver Ofertas Especiais</div>
+            </div>
+        </a>
+        
+
 
 <h2>Desvendando o Segredo do Airbnb Perfeito: 10 Dicas Essenciais</h2>
 <p>Você já se perguntou como alguns viajantes parecem sempre acertar na escolha do Airbnb, enquanto outros enfrentam surpresas desagradáveis? A resposta está em um conjunto de dicas práticas e testadas que vão muito além de simplesmente olhar as fotos. Este resumo aborda as estratégias-chave que você precisa para fazer escolhas inteligentes e informadas ao reservar seu próximo Airbnb.</p>
@@ -176,6 +208,7 @@
         </div>
 
         <footer>
+            <p style="font-size: 0.75rem; color: #999; margin-bottom: 10px;">Aviso: Como Participante Associado da Amazon, ganho com compras qualificadas.</p>
             <p>&copy; 2026 Vinicius Codes — São José dos Pinhais, PR.</p>
         </footer>
     </article>
