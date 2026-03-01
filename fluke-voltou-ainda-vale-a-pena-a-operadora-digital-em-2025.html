@@ -146,7 +146,7 @@
 
         <div class="video-wrapper">
             <div class="video-container">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kYXvHXyDfjg" title="Fluke voltou: ainda vale a pena a operadora digital em 2025?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kYXvHXyDfjg?enablejsapi=1" title="Fluke voltou: ainda vale a pena a operadora digital em 2025?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -158,6 +158,75 @@
             <p>&copy; 2026 Vinicius Codes — São José dos Pinhais, PR.</p>
         </footer>
     </article>
+
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+var player;
+var trackedMilestones = {};
+
+// 1. RASTREIO AMAZON
+document.addEventListener('click', function(e) {
+  var el = e.target.closest('a');
+  if (el && el.href.includes('amazon.com.br')) {
+    gtag('event', 'amazon_conversion_click', {
+      'event_category': 'affiliate',
+      'event_label': el.href,
+      'product_term': el.querySelector('.amz-title') ? el.querySelector('.amz-title').innerText : 'Link Externo'
+    });
+  }
+});
+
+// 2. RASTREIO YOUTUBE (API)
+function onYouTubeIframeAPIReady() {
+  var iframes = document.querySelectorAll('iframe[src*="youtube.com"]');
+  iframes.forEach(function(iframe, index) {
+    var id = 'yt_player_' + index;
+    iframe.setAttribute('id', id);
+    new YT.Player(id, {
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  });
+}
+
+function onPlayerStateChange(event) {
+  var videoData = event.target.getVideoData();
+  var videoTitle = videoData.title;
+  
+  if (event.data == YT.PlayerState.PLAYING) {
+    gtag('event', 'video_start', { 'video_title': videoTitle });
+    trackProgress(event.target, videoTitle);
+  }
+}
+
+function trackProgress(player, title) {
+  var duration = player.getDuration();
+  var checkInterval = setInterval(function() {
+    if (player.getPlayerState() !== YT.PlayerState.PLAYING) {
+      clearInterval(checkInterval);
+      return;
+    }
+    
+    var currentTime = player.getCurrentTime();
+    var percent = (currentTime / duration) * 100;
+    var milestones = [25, 50, 75, 90, 100];
+    
+    milestones.forEach(function(m) {
+      if (percent >= m && !trackedMilestones[title + m]) {
+        gtag('event', 'video_progress', {
+          'video_title': title,
+          'video_percent': m + '%'
+        });
+        trackedMilestones[title + m] = true;
+      }
+    });
+    
+    if (percent >= 100) clearInterval(checkInterval);
+  }, 2000);
+}
+</script>
 
 </body>
 </html>
