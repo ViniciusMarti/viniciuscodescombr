@@ -67,5 +67,8 @@ $categories_info = [
 
 function get_category_info($slug) {
     global $categories_info;
-    return isset($categories_info[$slug]) ? $categories_info[$slug] : null;
+    if (isset($categories_info[$slug])) {
+        return $categories_info[$slug];
+    }
+    return $categories_info['default'];
 }
