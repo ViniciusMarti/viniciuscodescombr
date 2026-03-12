@@ -1,9 +1,0 @@
-.git
-.wrangler
-node_modules
-*.py
-check_spaces.py
-compare_slugs.py
-test_cat.php
-test_cat_carreira.php
-debug_json.py
