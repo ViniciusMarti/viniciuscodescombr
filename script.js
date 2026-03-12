@@ -5,15 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Navbar scroll effect
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(252, 252, 249, 0.9)';
-            navbar.style.backdropFilter = 'blur(10px)';
-            navbar.style.padding = '1.2rem 0';
-            navbar.style.borderBottom = '1px solid #eeeeee';
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.background = 'transparent';
-            navbar.style.backdropFilter = 'none';
-            navbar.style.padding = '2rem 0';
-            navbar.style.borderBottom = 'none';
+            navbar.classList.remove('scrolled');
         }
 
         // Scroll Reveal
@@ -48,9 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenu.classList.toggle('active');
             const icon = mobileToggle.querySelector('i');
             if (mobileMenu.classList.contains('active')) {
-                icon.classList.replace('fa-bars', 'fa-times');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
             } else {
-                icon.classList.replace('fa-times', 'fa-bars');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
         });
 
@@ -58,11 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
-                mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             });
         });
     }
 
     checkReveals();
 });
-
