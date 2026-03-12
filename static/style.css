@@ -132,26 +132,36 @@ header {
 .promo-banner { background: linear-gradient(135deg, var(--bg-subtle), var(--card-bg)); border: 1px solid var(--border); border-radius: var(--radius); margin: 40px 0 64px; display: grid; grid-template-columns: 1.2fr 0.8fr; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden; }
 .promo-banner:hover { box-shadow: var(--shadow); border-color: #fca311; transform: translateY(-2px); }
 .promo-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
-.promo-image { background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center; min-height: 300px; }
+.promo-image { background-size: cover; background-position: center; min-height: 400px; }
 .promo-brand { display: flex; align-items: center; margin-bottom: 24px; }
 .promo-brand img { height: 28px; width: auto; object-fit: contain; }
 @media (prefers-color-scheme: dark) { .promo-brand img { filter: brightness(0) invert(1); } }
 .promo-banner h3 { font-size: 2rem; font-family: 'Outfit', sans-serif; font-weight: 800; margin-bottom: 16px; color: var(--text); line-height: 1.2; }
 .promo-banner p { color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; line-height: 1.6; }
-.promo-price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 32px; }
-.promo-price .amount { font-size: 2.5rem; font-weight: 800; font-family: 'Outfit', sans-serif; color: var(--text); }
-.promo-price .term { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
-.promo-price .badge { background: #fee2e2; color: #b91c1c; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 100px; margin-left: 8px; }
-.promo-cta { background: #fca311; color: #111; text-decoration: none; padding: 16px 32px; border-radius: 100px; font-weight: 700; transition: var(--transition); font-size: 1.05rem; display: inline-flex; align-items: center; gap: 10px; width: fit-content; }
-.promo-cta:hover { transform: scale(1.02); background: #f59e0b; }
-@media (prefers-color-scheme: dark) { .promo-price .badge { background: rgba(239, 68, 68, 0.2); color: #fca5a5; } }
+
+.promo-benefits { list-style: none; padding: 0; margin-bottom: 24px; }
+.promo-benefits li { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.promo-benefits i { color: #fca311; font-size: 0.9rem; }
+
+.promo-price { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+.price-details { display: flex; flex-direction: column; }
+.price-old { font-size: 0.9rem; color: var(--text-muted); text-decoration: line-through; opacity: 0.6; }
+.price-new { display: flex; align-items: baseline; gap: 4px; }
+.promo-price .amount { font-size: 2.8rem; font-weight: 800; font-family: 'Outfit', sans-serif; color: var(--text); }
+.promo-price .term { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+.promo-price .badge { background: #22c55e; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.promo-cta { background: #fca311; color: #111; text-decoration: none; padding: 18px 36px; border-radius: 100px; font-weight: 800; transition: var(--transition); font-size: 1.1rem; display: inline-flex; align-items: center; gap: 12px; width: fit-content; border: none; cursor: pointer; }
+.promo-cta:hover { transform: scale(1.03); background: #f59e0b; box-shadow: 0 10px 20px rgba(252, 163, 17, 0.2); }
+.disclaimer { margin-top: 24px; font-size: 0.75rem; color: var(--text-muted); opacity: 0.6; font-style: italic; }
+
+@media (prefers-color-scheme: dark) { .promo-price .badge { background: #16a34a; } }
 @media (max-width: 768px) { 
     .promo-banner { grid-template-columns: 1fr; }
-    .promo-image { order: -1; min-height: 180px; }
-    .promo-content { padding: 24px 20px; }
-    .promo-banner h3 { font-size: 1.5rem; margin-bottom: 12px; }
-    .promo-price { margin-bottom: 24px; flex-wrap: wrap; }
-    .promo-price .amount { font-size: 2.2rem; white-space: nowrap; }
+    .promo-image { order: -1; min-height: 250px; }
+    .promo-content { padding: 32px 24px; }
+    .promo-banner h3 { font-size: 1.7rem; }
+    .promo-price .amount { font-size: 2.4rem; }
     .promo-cta { width: 100%; justify-content: center; }
 }
 

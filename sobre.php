@@ -28,6 +28,15 @@ require_once __DIR__ . '/includes/header.php';
                 <a href="https://linkedin.com/in/viniciuscodes" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
+        
+        <div style="margin-top: 60px;">
+            <?php 
+                // Define uma categoria específica para o banner no "Sobre"
+                // ou apenas sobrescreve a imagem para usar a que sobrou (cambly-07)
+                $current_cat = 'institucional'; 
+                include __DIR__ . '/includes/cambly_banner.php'; 
+            ?>
+        </div>
     </div>
 </article>
 

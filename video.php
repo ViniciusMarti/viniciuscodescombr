@@ -1,12 +1,25 @@
 <?php
 require_once __DIR__ . '/includes/init.php';
-$slug = isset($_GET['slug']) ? $_GET['slug'] : '';
+$slug = isset($_GET['slug']) ? strtolower($_GET['slug']) : '';
 $video = isset($data['videos'][$slug]) ? $data['videos'][$slug] : null;
 
 if (!$video) {
     header("HTTP/1.0 404 Not Found");
     include '404.php';
     exit;
+}
+
+// Tenta encontrar a categoria do vídeo para o banner
+$current_cat = 'default';
+if (isset($data['categories_videos'])) {
+    foreach ($data['categories_videos'] as $cat => $v_list) {
+        foreach ($v_list as $v_info) {
+            if (isset($v_info['slug']) && $v_info['slug'] === $slug) {
+                $current_cat = $cat;
+                break 2;
+            }
+        }
+    }
 }
 
 $page_title = $video['seo_title'];

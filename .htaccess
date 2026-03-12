@@ -16,7 +16,32 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+index\.(php|html)[\s?] [NC]
 RewriteRule ^index\.(php|html)$ / [R=301,L]
 
-# 3. Garante que o PHP seja processado
+# 3. Handle Category Pages (Explicit slugs)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
+RewriteRule ^(?:categoria-)?(tecnologia-e-reviews|nomadismo-e-viagens|financas-pessoais-e-economia|lar-decoracao-e-vida-solo|carreira-estudos-e-desenvolvimento)(?:\.html)?/?$ categoria.php?slug=$1 [NC,L,QSA]
+
+# 4. Handle Other Category Patterns
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^categoria-([^/.]+)(?:\.html)?/?$ categoria.php?slug=$1 [NC,L,QSA]
+
+
+# 4. Handle Specific PHP Files (e.g. /sobre matches sobre.php)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/.]+)/?$ $1.php [NC,L,QSA]
+
+# 5. Handle Video Pages with prefix (e.g. /videos/slug or .html)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^videos/([^/.]+)(?:\.html)?/?$ video.php?slug=$1 [NC,L,QSA]
+
+# 6. Fallback (handle direct slugs or .html)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/.]+)(?:\.html)?/?$ video.php?slug=$1 [NC,L,QSA]
+
+
+

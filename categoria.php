@@ -1,7 +1,12 @@
 <?php
 require_once __DIR__ . '/includes/init.php';
-$slug = isset($_GET['slug']) ? $_GET['slug'] : '';
+$slug = isset($_GET['slug']) ? strtolower($_GET['slug']) : '';
+// Fallback: se o slug ainda contiver 'categoria-', removemos aqui
+if (strpos($slug, 'categoria-') === 0) {
+    $slug = substr($slug, 10);
+}
 $category = get_category_info($slug);
+
 
 if (!$category) {
     header("HTTP/1.0 404 Not Found");

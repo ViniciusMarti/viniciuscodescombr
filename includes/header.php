@@ -27,12 +27,26 @@
         <div class="container nav-content">
             <a href="/" class="logo">vinicius codes</a>
             <ul class="nav-links">
+                <li><a href="/tecnologia-e-reviews">tecnologia</a></li>
+                <li><a href="/nomadismo-e-viagens">viagens</a></li>
+                <li><a href="/financas-pessoais-e-economia">finanças</a></li>
                 <li><a href="/#sobre">sobre</a></li>
-                <li><a href="/#projetos">projetos</a></li>
-                <li><a href="/#carreira">carreira</a></li>
                 <li><a href="/#contato">contato</a></li>
             </ul>
+            <button class="mobile-toggle" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu">
+            <a href="/">início</a>
+            <a href="/tecnologia-e-reviews">tecnologia</a>
+            <a href="/nomadismo-e-viagens">viagens</a>
+            <a href="/financas-pessoais-e-economia">finanças</a>
+            <a href="/#sobre">sobre</a>
+            <a href="/#contato">contato</a>
+        </div>
+
     </nav>
 
     <main>

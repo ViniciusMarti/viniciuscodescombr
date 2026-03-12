@@ -39,5 +39,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileToggle && mobileMenu) {
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        // Close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+    }
+
     checkReveals();
 });
+
