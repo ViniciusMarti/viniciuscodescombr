@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
     <link href="/fontawesome/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <link rel="icon" type="image/png" href="/logo_heineken.png"> <!-- Usando um logo como favicon temporário ou o que estiver disponível -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
