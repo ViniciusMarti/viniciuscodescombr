@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinícius Codes | Product Owner & Data Analytics</title>
-    <meta name="description" content="Product Owner of Data & Analytics focado em transformar perguntas de negócio em soluções de dados reais.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
-    <link href="/fontawesome/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <nav id="navbar">
-        <div class="container nav-content">
-            <a href="#" class="logo">vinicius codes</a>
-            <ul class="nav-links">
-                <li><a href="#sobre">sobre</a></li>
-                <li><a href="#projetos">projetos</a></li>
-                <li><a href="#carreira">carreira</a></li>
-                <li><a href="#contato">contato</a></li>
-            </ul>
-        </div>
-    </nav>
+<?php require_once __DIR__ . '/includes/header.php'; ?>
 
     <header class="hero">
         <div class="container">
@@ -121,21 +96,4 @@
         </div>
     </section>
 
-    <footer id="contato">
-        <div class="container">
-            <div class="footer-content">
-                <h2>Vamos construir o futuro dos dados juntos?</h2>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/viniciuscodes/" target="_blank"><i class="fa-brands fa-linkedin mr-1"></i> LinkedIn</a>
-                    <a href="https://www.instagram.com/viniciuscodes/" target="_blank"><i class="fa-brands fa-instagram mr-1"></i> Instagram</a>
-                    <a href="https://viniciuscodes.medium.com/" target="_blank"><i class="fa-brands fa-medium mr-1"></i> Medium</a>
-                    <a href="https://youtube.com/viniciuscodes" target="_blank"><i class="fa-brands fa-youtube mr-1"></i> YouTube</a>
-                </div>
-                <p class="copyright">&copy; 2024 Vinícius Codes. Feito com foco em clareza.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
